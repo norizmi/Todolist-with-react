@@ -31,7 +31,7 @@ const Form = () => {
         <Button>Add To do</Button>
       </form>
 
-      <List items={isItems}/>
+      <List />
     </div>
   );
 };
