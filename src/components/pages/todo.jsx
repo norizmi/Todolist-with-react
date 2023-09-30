@@ -5,7 +5,6 @@ const Todo = () => {
   return (
     <div>
       <Form />
-      <List />
     </div>
   );
 };
