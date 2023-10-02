@@ -20,7 +20,7 @@ const Form = () => {
   const handleForm = (event) => {
     event.preventDefault();
     localStorage.setItem("form", event.target.form.value);
-    if (isAddTodo != "") {
+    if(event.target.form.value !== "") {
       setItems((prevItems) => [
         ...prevItems,
         {
@@ -29,36 +29,27 @@ const Form = () => {
         },
       ]);
     } else {
-      alert("Kolom input wajib diisi!");
+      alert("kolom wajib diisi")
     }
-
-    console.log(isItems);
+    document.getElementById("cleared").reset();
   };
 
   const handleAddTodo = (event) => {
-    setAddTodo({
-      addToDo: event.target.value,
-    });
+
+      setAddTodo({
+        addToDo: event.target.value,
+      }); 
+      
   };
+
 
   return (
     <div>
-      <form className="flex justify-center gap-x-4" onSubmit={handleForm}>
+      <form className="flex justify-center gap-x-4" onSubmit={handleForm} id="cleared">
         <Input type="text" size="w-2/5" name="form" onchange={handleAddTodo} />
         <Button>Add To do</Button>
       </form>
-
-      {/* <ul className="text-center mt-8">
-        {isItems.map((item) => (
-          <li
-            className="bg-slate-200 w-2/5 mx-auto rounded-md shadow-lg mt-4 p-5 text-xl hover:bg-slate-400"
-            key={item.id}
-          >
-            {item.addToDo}
-          </li>
-        ))}
-      </ul> */}
- 
+      
       <List  items={isItems} />
     
     </div>
