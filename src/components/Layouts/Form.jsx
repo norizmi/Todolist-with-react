@@ -42,6 +42,10 @@ const Form = () => {
       
   };
 
+  const handleItemClose = (deleteItem) => {
+    setItems(deleteItem)
+  }
+
 
   return (
     <div>
@@ -50,7 +54,7 @@ const Form = () => {
         <Button>Add To do</Button>
       </form>
       
-      <List  items={isItems} />
+      <List items={isItems} handleItemClose={handleItemClose}/>
     
     </div>
   );
