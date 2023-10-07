@@ -43,6 +43,7 @@ const Form = () => {
   };
 
   const handleItemClose = (deleteItem) => {
+    localStorage.removeItem("form")
     setItems(deleteItem)
   }
 
